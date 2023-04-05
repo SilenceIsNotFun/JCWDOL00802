@@ -60,7 +60,7 @@ function ReportSales() {
       Axios.get(`${API_URL}/product/category`)
       .then(
           (response)=>{
-            console.log(response);
+            
               setDataCategory(response.data)
           }
       )
