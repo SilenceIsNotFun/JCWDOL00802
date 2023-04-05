@@ -126,6 +126,9 @@ const Navbar = (props) => {
                       <Link to="/admin/warehouse">
                         <MenuItem>Pengelolaan Gudang</MenuItem>
                       </Link>
+                      <Link to="/admin/salesreport">
+                        <MenuItem>Laporan penjualan</MenuItem>
+                      </Link>
                     </div>
                   ) : (
                     // Bila user, karena user kodenya 1, jadi semua yg lbh dr 1 itu admin atau super admin

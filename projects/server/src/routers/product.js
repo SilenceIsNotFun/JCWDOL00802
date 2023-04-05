@@ -5,13 +5,13 @@ const { ProductController, authorizeController } = require("../controllers");
 
 route.get(
   "/sales",
-  authorizeController.authUser,
+  authorizeController.authAdmin,
   ProductController.getProductSales
 );
 route.get("/category", ProductController.getCategory);
 route.get(
   "/warehouse",
-  authorizeController.authUser,
+  authorizeController.authAdmin,
   ProductController.getWarehouse
 );
 module.exports = route;

@@ -35,6 +35,12 @@ function App() {
   const [loading, setLoading] = React.useState(true);
 
   const dispatch = useDispatch();
+  const { role } = useSelector((state) => {
+    return {
+      role: state.userReducer.role,
+    };
+  });
+  const admin = [2, 3];
 
   //KEEP LOGIN
   const keepLogin = async () => {
@@ -73,8 +79,21 @@ function App() {
         <Route path="/regis" element={<Register />} />
         <Route path="/newuser" element={<NewUser />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/admin/salesreport" element={<ReportSales />} />
+
+        {/* semua yang butuh login user taruh dalam <></> bawah ini */}
+        {role == 1 && (
+          <>
+            <Route path="/profile" element={<Profile />} />
+          </>
+        )}
+        {/* semua yang butuh minimal admin taruh didalam <> bawah ini */}
+        {admin.includes(role) && (
+          <>
+            <Route path="/admin/salesreport" element={<ReportSales />} />
+          </>
+        )}
+        {/* semua yang butuh superadmin taruh dalam <></> bawah ini */}
+        {role == 3 && <></>}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
